@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meska DESIGN</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin:0;
+    font-family:'Orbitron', sans-serif;
+    background:#0a0a0a;
+    color:white;
+    overflow-x:hidden;
+}
+
+/* Neon Başlık */
+h1 {
+    font-size:70px;
+    text-align:center;
+    margin-top:120px;
+    color:#00f2ff;
+    text-shadow:
+        0 0 10px #00f2ff,
+        0 0 20px #00f2ff,
+        0 0 40px #9d00ff;
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    from { text-shadow:0 0 10px #00f2ff,0 0 20px #00f2ff;}
+    to { text-shadow:0 0 20px #ff00c8,0 0 40px #9d00ff;}
+}
+
+.subtitle {
+    text-align:center;
+    opacity:0.7;
+    margin-bottom:40px;
+}
+
+/* Buton */
+.btn {
+    display:inline-block;
+    padding:12px 30px;
+    margin:10px;
+    border-radius:30px;
+    background:transparent;
+    border:2px solid #00f2ff;
+    color:#00f2ff;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.btn:hover {
+    background:#00f2ff;
+    color:black;
+    box-shadow:0 0 20px #00f2ff;
+}
+
+/* Neon Kategori Başlığı */
+.category-title {
+    margin-top:80px;
+    font-size:28px;
+    position:relative;
+}
+
+.category-title::after {
+    content:"";
+    display:block;
+    width:120px;
+    height:3px;
+    margin:10px auto;
+    background:linear-gradient(90deg,#00f2ff,#9d00ff,#ff00c8);
+    box-shadow:0 0 15px #00f2ff;
+}
+
+/* Filtre Butonları */
+.filter-buttons {
+    text-align:center;
+    margin:40px 0;
+}
+
+.filter-buttons button {
+    background:transparent;
+    border:1px solid #00f2ff;
+    color:#00f2ff;
+    padding:8px 18px;
+    margin:5px;
+    border-radius:20px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.filter-buttons button:hover {
+    background:#00f2ff;
+    color:black;
+    box-shadow:0 0 15px #00f2ff;
+}
+
+/* Kart Alanı */
+.section {
+    padding:80px 20px;
+    text-align:center;
+}
+
+.cards {
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    gap:25px;
+}
+
+.card {
+    width:230px;
+    padding:30px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.6s;
+    opacity:0;
+    transform:translateY(30px);
+}
+
+.card.show {
+    opacity:1;
+    transform:translateY(0);
+}
+
+.card:hover {
+    transform:translateY(-10px);
+    box-shadow:0 0 20px #9d00ff;
+}
+
+footer {
+    text-align:center;
+    padding:40px;
+    opacity:0.6;
+}
+</style>
+</head>
+
+<body>
+
+<h1>Meska DESIGN</h1>
+<p class="subtitle">Profesyonel Grafik Tasarım Hizmeti</p>
+
+<div style="text-align:center;">
+    <a href="#tasarimlar" class="btn">Çalışmaları Gör</a>
+    <a href="https://discord.gg/ADRESIN" target="_blank" class="btn">Discord</a>
+</div>
+
+<div class="section">
+    <h2>Hakkımızda</h2>
+    <p>
+        Meska DESIGN, modern ve özgün grafik tasarımlar üreten profesyonel bir dijital ajanstır.
+        Markanızı en güçlü şekilde temsil eden logo, banner ve sosyal medya tasarımları üretir.
+    </p>
+</div>
+
+<div class="section" id="tasarimlar">
+
+    <!-- Filtre -->
+    <div class="filter-buttons">
+        <button onclick="filterSelection('all')">Tümü</button>
+        <button onclick="filterSelection('giflogo')">GIF Logo</button>
+        <button onclick="filterSelection('gfxlogo')">GFX Logo</button>
+        <button onclick="filterSelection('gifbanner')">GIF Banner</button>
+        <button onclick="filterSelection('gfxbanner')">GFX Banner</button>
+        <button onclick="filterSelection('social')">Social Media</button>
+    </div>
+
+    <h2 class="category-title">Tasarımlar</h2>
+
+    <div class="cards">
+
+        <!-- GIF LOGO -->
+        <div class="card giflogo">GIF Logo 1</div>
+        <div class="card giflogo">GIF Logo 2</div>
+        <div class="card giflogo">GIF Logo 3</div>
+        <div class="card giflogo">GIF Logo 4</div>
+       
+
+        <!-- GFX LOGO -->
+        <div class="card gfxlogo">GFX Logo 1</div>
+        <div class="card gfxlogo">GFX Logo 2</div>
+        <div class="card gfxlogo">GFX Logo 3</div>
+        <div class="card gfxlogo">GFX Logo 4</div>
+        <div class="card gfxlogo">GFX Logo 5</div>
+
+        <!-- GIF BANNER -->
+        <div class="card gifbanner">GIF Banner 1</div>
+        <div class="card gifbanner">GIF Banner 2</div>
+        <div class="card gifbanner">GIF Banner 3</div>
+        <div class="card gifbanner">GIF Banner 4</div>
+        <div class="card gifbanner">GIF Banner 5</div>
+
+        <!-- GFX BANNER -->
+        <div class="card gfxbanner">GFX Banner 1</div>
+        <div class="card gfxbanner">GFX Banner 2</div>
+        <div class="card gfxbanner">GFX Banner 3</div>
+        <div class="card gfxbanner">GFX Banner 4</div>
+        <div class="card gfxbanner">GFX Banner 5</div>
+
+        <!-- SOCIAL -->
+        <div class="card social">Social Media 1</div>
+        <div class="card social">Social Media 2</div>
+        <div class="card social">Social Media 3</div>
+        <div class="card social">Social Media 4</div>
+        <div class="card social">Social Media 5</div>
+
+    </div>
+</div>
+
+<footer>
+© 2026 Meska DESIGN | Tüm Hakları Saklıdır.
+</footer>
+
+<script>
+filterSelection("all");
+
+function filterSelection(category) {
+    let cards = document.getElementsByClassName("card");
+
+    for (let i = 0; i < cards.length; i++) {
+        cards[i].classList.remove("show");
+
+        if (category === "all" || cards[i].classList.contains(category)) {
+            cards[i].style.display = "block";
+            setTimeout(() => cards[i].classList.add("show"), 100);
+        } else {
+            cards[i].style.display = "none";
+        }
+    }
+}
+
+/* Scroll animasyon */
+window.addEventListener("scroll", () => {
+    let cards = document.querySelectorAll(".card");
+    let triggerBottom = window.innerHeight * 0.85;
+
+    cards.forEach(card => {
+        let cardTop = card.getBoundingClientRect().top;
+        if (cardTop < triggerBottom) {
+            card.classList.add("show");
+        }
+    });
+});
+</script>
+
+</body>
+</html>
