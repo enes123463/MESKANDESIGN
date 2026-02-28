@@ -114,15 +114,17 @@ h1 {
     background:rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
     border:1px solid rgba(255,255,255,0.1);
-    transition:0.6s;
+    transition:0.4s ease;
     opacity:0;
     transform:translateY(30px);
+    cursor:pointer;
 }
 
 .card img {
     width:100%;
     height:100%;
     object-fit:cover;
+    transition:0.4s ease;
 }
 
 .card.show {
@@ -130,9 +132,38 @@ h1 {
     transform:translateY(0);
 }
 
+/* Güçlü Neon Hover */
 .card:hover {
     transform:translateY(-10px);
-    box-shadow:0 0 20px #9d00ff;
+    box-shadow:
+        0 0 15px #00f2ff,
+        0 0 30px #9d00ff,
+        0 0 45px #ff00c8;
+}
+
+.card:hover img {
+    transform:scale(1.1);
+}
+
+/* MODAL */
+.modal {
+    display:none;
+    position:fixed;
+    z-index:9999;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.95);
+    justify-content:center;
+    align-items:center;
+}
+
+.modal img {
+    max-width:85%;
+    max-height:85%;
+    border-radius:15px;
+    box-shadow:0 0 40px #00f2ff;
 }
 
 footer {
@@ -176,40 +207,39 @@ footer {
 
 <div class="cards">
 
-<!-- GIF LOGO -->
-<div class="card giflogo"><img src="giflogo1.gif"></div>
-<div class="card giflogo"><img src="giflogo2.gif"></div>
-<div class="card giflogo"><img src="giflogo3.gif"></div>
-<div class="card giflogo"><img src="giflogo4.gif"></div>
+<div class="card giflogo" onclick="openModal(this)"><img src="giflogo1.gif"></div>
+<div class="card giflogo" onclick="openModal(this)"><img src="giflogo2.gif"></div>
+<div class="card giflogo" onclick="openModal(this)"><img src="giflogo3.gif"></div>
+<div class="card giflogo" onclick="openModal(this)"><img src="giflogo4.gif"></div>
 
-<!-- GFX LOGO -->
-<div class="card gfxlogo"><img src="gfxlogo1.gif"></div>
-<div class="card gfxlogo"><img src="gfxlogo2.gif"></div>
-<div class="card gfxlogo"><img src="gfxlogo3.gif"></div>
+<div class="card gfxlogo" onclick="openModal(this)"><img src="gfxlogo1.gif"></div>
+<div class="card gfxlogo" onclick="openModal(this)"><img src="gfxlogo2.gif"></div>
+<div class="card gfxlogo" onclick="openModal(this)"><img src="gfxlogo3.gif"></div>
 
+<div class="card gifbanner" onclick="openModal(this)"><img src="gifbanner1.gif"></div>
+<div class="card gifbanner" onclick="openModal(this)"><img src="gifbanner2.gif"></div>
+<div class="card gifbanner" onclick="openModal(this)"><img src="gifbanner3.gif"></div>
+<div class="card gifbanner" onclick="openModal(this)"><img src="gifbanner4.gif"></div>
+<div class="card gifbanner" onclick="openModal(this)"><img src="gifbanner5.gif"></div>
 
-<!-- GIF BANNER -->
-<div class="card gifbanner"><img src="gifbanner1.gif"></div>
-<div class="card gifbanner"><img src="gifbanner2.gif"></div>
-<div class="card gifbanner"><img src="gifbanner3.gif"></div>
-<div class="card gifbanner"><img src="gifbanner4.gif"></div>
-<div class="card gifbanner"><img src="gifbanner5.gif"></div>
+<div class="card gfxbanner" onclick="openModal(this)"><img src="gfxbanner1.jpg"></div>
+<div class="card gfxbanner" onclick="openModal(this)"><img src="gfxbanner2.jpg"></div>
+<div class="card gfxbanner" onclick="openModal(this)"><img src="gfxbanner3.jpg"></div>
+<div class="card gfxbanner" onclick="openModal(this)"><img src="gfxbanner4.jpg"></div>
+<div class="card gfxbanner" onclick="openModal(this)"><img src="gfxbanner5.jpg"></div>
 
-<!-- GFX BANNER -->
-<div class="card gfxbanner"><img src="gfxbanner1.jpg"></div>
-<div class="card gfxbanner"><img src="gfxbanner2.jpg"></div>
-<div class="card gfxbanner"><img src="gfxbanner3.jpg"></div>
-<div class="card gfxbanner"><img src="gfxbanner4.jpg"></div>
-<div class="card gfxbanner"><img src="gfxbanner5.jpg"></div>
-
-<!-- SOCIAL -->
-<div class="card social"><img src="social1.jpg"></div>
-<div class="card social"><img src="social2.jpg"></div>
-<div class="card social"><img src="social3.jpg"></div>
-<div class="card social"><img src="social4.jpg"></div>
-<div class="card social"><img src="social5.jpg"></div>
+<div class="card social" onclick="openModal(this)"><img src="social1.jpg"></div>
+<div class="card social" onclick="openModal(this)"><img src="social2.jpg"></div>
+<div class="card social" onclick="openModal(this)"><img src="social3.jpg"></div>
+<div class="card social" onclick="openModal(this)"><img src="social4.jpg"></div>
+<div class="card social" onclick="openModal(this)"><img src="social5.jpg"></div>
 
 </div>
+</div>
+
+<!-- MODAL -->
+<div class="modal" id="modal" onclick="closeModal()">
+<img id="modalImg">
 </div>
 
 <footer>
@@ -221,10 +251,8 @@ filterSelection("all");
 
 function filterSelection(category) {
 let cards = document.getElementsByClassName("card");
-
 for (let i = 0; i < cards.length; i++) {
 cards[i].classList.remove("show");
-
 if (category === "all" || cards[i].classList.contains(category)) {
 cards[i].style.display = "block";
 setTimeout(() => cards[i].classList.add("show"), 100);
@@ -237,7 +265,6 @@ cards[i].style.display = "none";
 window.addEventListener("scroll", () => {
 let cards = document.querySelectorAll(".card");
 let triggerBottom = window.innerHeight * 0.85;
-
 cards.forEach(card => {
 let cardTop = card.getBoundingClientRect().top;
 if (cardTop < triggerBottom) {
@@ -245,8 +272,24 @@ card.classList.add("show");
 }
 });
 });
+
+/* MODAL */
+function openModal(card){
+const img = card.querySelector("img").src;
+document.getElementById("modal").style.display="flex";
+document.getElementById("modalImg").src = img;
+}
+
+function closeModal(){
+document.getElementById("modal").style.display="none";
+}
+
+document.addEventListener("keydown", function(e){
+if(e.key === "Escape"){
+closeModal();
+}
+});
 </script>
 
 </body>
 </html>
-
