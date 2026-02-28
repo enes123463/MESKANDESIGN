@@ -15,7 +15,6 @@ body {
     overflow-x:hidden;
 }
 
-/* Neon Başlık */
 h1 {
     font-size:70px;
     text-align:center;
@@ -39,7 +38,6 @@ h1 {
     margin-bottom:40px;
 }
 
-/* Buton */
 .btn {
     display:inline-block;
     padding:12px 30px;
@@ -58,7 +56,6 @@ h1 {
     box-shadow:0 0 20px #00f2ff;
 }
 
-/* Neon Kategori Başlığı */
 .category-title {
     margin-top:80px;
     font-size:28px;
@@ -75,7 +72,6 @@ h1 {
     box-shadow:0 0 15px #00f2ff;
 }
 
-/* Filtre Butonları */
 .filter-buttons {
     text-align:center;
     margin:40px 0;
@@ -98,7 +94,6 @@ h1 {
     box-shadow:0 0 15px #00f2ff;
 }
 
-/* Kart Alanı */
 .section {
     padding:80px 20px;
     text-align:center;
@@ -113,14 +108,21 @@ h1 {
 
 .card {
     width:230px;
-    padding:30px;
+    height:180px;
     border-radius:15px;
+    overflow:hidden;
     background:rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
     border:1px solid rgba(255,255,255,0.1);
     transition:0.6s;
     opacity:0;
     transform:translateY(30px);
+}
+
+.card img {
+    width:100%;
+    height:100%;
+    object-fit:cover;
 }
 
 .card.show {
@@ -161,56 +163,54 @@ footer {
 
 <div class="section" id="tasarimlar">
 
-    <!-- Filtre -->
-    <div class="filter-buttons">
-        <button onclick="filterSelection('all')">Tümü</button>
-        <button onclick="filterSelection('giflogo')">GIF Logo</button>
-        <button onclick="filterSelection('gfxlogo')">GFX Logo</button>
-        <button onclick="filterSelection('gifbanner')">GIF Banner</button>
-        <button onclick="filterSelection('gfxbanner')">GFX Banner</button>
-        <button onclick="filterSelection('social')">Social Media</button>
-    </div>
+<div class="filter-buttons">
+<button onclick="filterSelection('all')">Tümü</button>
+<button onclick="filterSelection('giflogo')">GIF Logo</button>
+<button onclick="filterSelection('gfxlogo')">GFX Logo</button>
+<button onclick="filterSelection('gifbanner')">GIF Banner</button>
+<button onclick="filterSelection('gfxbanner')">GFX Banner</button>
+<button onclick="filterSelection('social')">Social Media</button>
+</div>
 
-    <h2 class="category-title">Tasarımlar</h2>
+<h2 class="category-title">Tasarımlar</h2>
 
-    <div class="cards">
+<div class="cards">
 
-        <!-- GIF LOGO -->
-        <div class="card giflogo">GIF Logo 1</div>
-        <div class="card giflogo">GIF Logo 2</div>
-        <div class="card giflogo">GIF Logo 3</div>
-        <div class="card giflogo">GIF Logo 4</div>
-       
+<!-- GIF LOGO -->
+<div class="card giflogo"><img src="giflogo1.gif"></div>
+<div class="card giflogo"><img src="giflogo2.gif"></div>
+<div class="card giflogo"><img src="giflogo3.gif"></div>
+<div class="card giflogo"><img src="giflogo4.gif"></div>
 
-        <!-- GFX LOGO -->
-        <div class="card gfxlogo">GFX Logo 1</div>
-        <div class="card gfxlogo">GFX Logo 2</div>
-        <div class="card gfxlogo">GFX Logo 3</div>
-        <div class="card gfxlogo">GFX Logo 4</div>
-        <div class="card gfxlogo">GFX Logo 5</div>
+<!-- GFX LOGO -->
+<div class="card gfxlogo"><img src="gfxlogo1.jpg"></div>
+<div class="card gfxlogo"><img src="gfxlogo2.jpg"></div>
+<div class="card gfxlogo"><img src="gfxlogo3.jpg"></div>
+<div class="card gfxlogo"><img src="gfxlogo4.jpg"></div>
+<div class="card gfxlogo"><img src="gfxlogo5.jpg"></div>
 
-        <!-- GIF BANNER -->
-        <div class="card gifbanner">GIF Banner 1</div>
-        <div class="card gifbanner">GIF Banner 2</div>
-        <div class="card gifbanner">GIF Banner 3</div>
-        <div class="card gifbanner">GIF Banner 4</div>
-        <div class="card gifbanner">GIF Banner 5</div>
+<!-- GIF BANNER -->
+<div class="card gifbanner"><img src="gifbanner1.gif"></div>
+<div class="card gifbanner"><img src="gifbanner2.gif"></div>
+<div class="card gifbanner"><img src="gifbanner3.gif"></div>
+<div class="card gifbanner"><img src="gifbanner4.gif"></div>
+<div class="card gifbanner"><img src="gifbanner5.gif"></div>
 
-        <!-- GFX BANNER -->
-        <div class="card gfxbanner">GFX Banner 1</div>
-        <div class="card gfxbanner">GFX Banner 2</div>
-        <div class="card gfxbanner">GFX Banner 3</div>
-        <div class="card gfxbanner">GFX Banner 4</div>
-        <div class="card gfxbanner">GFX Banner 5</div>
+<!-- GFX BANNER -->
+<div class="card gfxbanner"><img src="gfxbanner1.jpg"></div>
+<div class="card gfxbanner"><img src="gfxbanner2.jpg"></div>
+<div class="card gfxbanner"><img src="gfxbanner3.jpg"></div>
+<div class="card gfxbanner"><img src="gfxbanner4.jpg"></div>
+<div class="card gfxbanner"><img src="gfxbanner5.jpg"></div>
 
-        <!-- SOCIAL -->
-        <div class="card social">Social Media 1</div>
-        <div class="card social">Social Media 2</div>
-        <div class="card social">Social Media 3</div>
-        <div class="card social">Social Media 4</div>
-        <div class="card social">Social Media 5</div>
+<!-- SOCIAL -->
+<div class="card social"><img src="social1.jpg"></div>
+<div class="card social"><img src="social2.jpg"></div>
+<div class="card social"><img src="social3.jpg"></div>
+<div class="card social"><img src="social4.jpg"></div>
+<div class="card social"><img src="social5.jpg"></div>
 
-    </div>
+</div>
 </div>
 
 <footer>
@@ -221,31 +221,30 @@ footer {
 filterSelection("all");
 
 function filterSelection(category) {
-    let cards = document.getElementsByClassName("card");
+let cards = document.getElementsByClassName("card");
 
-    for (let i = 0; i < cards.length; i++) {
-        cards[i].classList.remove("show");
+for (let i = 0; i < cards.length; i++) {
+cards[i].classList.remove("show");
 
-        if (category === "all" || cards[i].classList.contains(category)) {
-            cards[i].style.display = "block";
-            setTimeout(() => cards[i].classList.add("show"), 100);
-        } else {
-            cards[i].style.display = "none";
-        }
-    }
+if (category === "all" || cards[i].classList.contains(category)) {
+cards[i].style.display = "block";
+setTimeout(() => cards[i].classList.add("show"), 100);
+} else {
+cards[i].style.display = "none";
+}
+}
 }
 
-/* Scroll animasyon */
 window.addEventListener("scroll", () => {
-    let cards = document.querySelectorAll(".card");
-    let triggerBottom = window.innerHeight * 0.85;
+let cards = document.querySelectorAll(".card");
+let triggerBottom = window.innerHeight * 0.85;
 
-    cards.forEach(card => {
-        let cardTop = card.getBoundingClientRect().top;
-        if (cardTop < triggerBottom) {
-            card.classList.add("show");
-        }
-    });
+cards.forEach(card => {
+let cardTop = card.getBoundingClientRect().top;
+if (cardTop < triggerBottom) {
+card.classList.add("show");
+}
+});
 });
 </script>
 
