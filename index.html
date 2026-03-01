@@ -7,169 +7,185 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-body {
-    margin:0;
-    font-family:'Orbitron', sans-serif;
-    background:#0a0a0a;
-    color:white;
-    overflow-x:hidden;
+body{
+margin:0;
+font-family:'Orbitron',sans-serif;
+background:#0a0a0a;
+color:white;
+overflow-x:hidden;
 }
 
-h1 {
-    font-size:70px;
-    text-align:center;
-    margin-top:120px;
-    color:#00f2ff;
-    text-shadow:
-        0 0 10px #00f2ff,
-        0 0 20px #00f2ff,
-        0 0 40px #9d00ff;
-    animation: pulse 2s infinite alternate;
+/* CHROME TITLE */
+h1{
+font-size:75px;
+text-align:center;
+margin-top:120px;
+background:linear-gradient(180deg,#ffffff,#cfcfcf,#ffffff);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+text-shadow:
+0 0 15px rgba(255,255,255,0.8),
+0 0 40px rgba(255,255,255,0.5);
+animation: glow 3s infinite alternate;
 }
 
-@keyframes pulse {
-    from { text-shadow:0 0 10px #00f2ff,0 0 20px #00f2ff;}
-    to { text-shadow:0 0 20px #ff00c8,0 0 40px #9d00ff;}
+@keyframes glow{
+from{ text-shadow:0 0 15px rgba(255,255,255,0.6);}
+to{ text-shadow:0 0 40px rgba(255,255,255,1);}
 }
 
-.subtitle {
-    text-align:center;
-    opacity:0.7;
-    margin-bottom:40px;
+.subtitle{
+text-align:center;
+opacity:0.6;
+margin-bottom:40px;
+letter-spacing:2px;
 }
 
-.btn {
-    display:inline-block;
-    padding:12px 30px;
-    margin:10px;
-    border-radius:30px;
-    background:transparent;
-    border:2px solid #00f2ff;
-    color:#00f2ff;
-    cursor:pointer;
-    transition:0.3s;
+/* PREMIUM BUTTON */
+.btn{
+display:inline-block;
+padding:14px 35px;
+margin:10px;
+border-radius:40px;
+background:rgba(255,255,255,0.05);
+border:2px solid #ffffff;
+color:#ffffff;
+cursor:pointer;
+transition:0.4s;
+backdrop-filter:blur(8px);
 }
 
-.btn:hover {
-    background:#00f2ff;
-    color:black;
-    box-shadow:0 0 20px #00f2ff;
+.btn:hover{
+background:#ffffff;
+color:black;
+box-shadow:
+0 0 15px #ffffff,
+0 0 30px #ffffff;
+transform:translateY(-3px);
 }
 
-.category-title {
-    margin-top:80px;
-    font-size:28px;
-    position:relative;
+/* CATEGORY */
+.category-title{
+margin-top:90px;
+font-size:30px;
+letter-spacing:3px;
+position:relative;
 }
 
-.category-title::after {
-    content:"";
-    display:block;
-    width:120px;
-    height:3px;
-    margin:10px auto;
-    background:linear-gradient(90deg,#00f2ff,#9d00ff,#ff00c8);
-    box-shadow:0 0 15px #00f2ff;
+.category-title::after{
+content:"";
+display:block;
+width:150px;
+height:2px;
+margin:15px auto;
+background:#ffffff;
+box-shadow:0 0 20px #ffffff;
 }
 
-.filter-buttons {
-    text-align:center;
-    margin:40px 0;
+/* FILTER */
+.filter-buttons{
+text-align:center;
+margin:40px 0;
 }
 
-.filter-buttons button {
-    background:transparent;
-    border:1px solid #00f2ff;
-    color:#00f2ff;
-    padding:8px 18px;
-    margin:5px;
-    border-radius:20px;
-    cursor:pointer;
-    transition:0.3s;
+.filter-buttons button{
+background:rgba(255,255,255,0.05);
+border:1px solid #ffffff;
+color:#ffffff;
+padding:10px 22px;
+margin:6px;
+border-radius:30px;
+cursor:pointer;
+transition:0.4s;
+backdrop-filter:blur(6px);
 }
 
-.filter-buttons button:hover {
-    background:#00f2ff;
-    color:black;
-    box-shadow:0 0 15px #00f2ff;
+.filter-buttons button:hover{
+background:#ffffff;
+color:black;
+box-shadow:0 0 20px #ffffff;
 }
 
-.section {
-    padding:80px 20px;
-    text-align:center;
+/* SECTION */
+.section{
+padding:90px 20px;
+text-align:center;
 }
 
-.cards {
-    display:flex;
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:25px;
+/* CARDS */
+.cards{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
 }
 
-.card {
-    width:230px;
-    height:180px;
-    border-radius:15px;
-    overflow:hidden;
-    background:rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    border:1px solid rgba(255,255,255,0.1);
-    transition:0.4s ease;
-    opacity:0;
-    transform:translateY(30px);
-    cursor:pointer;
+.card{
+width:260px;
+height:190px;
+border-radius:18px;
+overflow:hidden;
+background:rgba(255,255,255,0.06);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,0.15);
+transition:0.5s;
+opacity:0;
+transform:translateY(40px);
+cursor:pointer;
 }
 
-.card img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    transition:0.4s ease;
+.card img{
+width:100%;
+height:100%;
+object-fit:cover;
+transition:0.5s;
 }
 
-.card.show {
-    opacity:1;
-    transform:translateY(0);
+.card.show{
+opacity:1;
+transform:translateY(0);
 }
 
-/* Güçlü Neon Hover */
-.card:hover {
-    transform:translateY(-10px);
-    box-shadow:
-        0 0 15px #00f2ff,
-        0 0 30px #9d00ff,
-        0 0 45px #ff00c8;
+/* PREMIUM HOVER */
+.card:hover{
+transform:translateY(-12px);
+box-shadow:
+0 0 20px #ffffff,
+0 0 50px rgba(255,255,255,0.6);
 }
 
-.card:hover img {
-    transform:scale(1.1);
+.card:hover img{
+transform:scale(1.12);
 }
 
 /* MODAL */
-.modal {
-    display:none;
-    position:fixed;
-    z-index:9999;
-    left:0;
-    top:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.95);
-    justify-content:center;
-    align-items:center;
+.modal{
+display:none;
+position:fixed;
+z-index:9999;
+left:0;
+top:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.97);
+justify-content:center;
+align-items:center;
 }
 
-.modal img {
-    max-width:85%;
-    max-height:85%;
-    border-radius:15px;
-    box-shadow:0 0 40px #00f2ff;
+.modal img{
+max-width:85%;
+max-height:85%;
+border-radius:20px;
+box-shadow:
+0 0 40px #ffffff,
+0 0 80px rgba(255,255,255,0.5);
 }
 
-footer {
-    text-align:center;
-    padding:40px;
-    opacity:0.6;
+footer{
+text-align:center;
+padding:50px;
+opacity:0.4;
+letter-spacing:2px;
 }
 </style>
 </head>
@@ -177,19 +193,11 @@ footer {
 <body>
 
 <h1>Meska DESIGN</h1>
-<p class="subtitle">Profesyonel Grafik Tasarım Hizmeti</p>
+<p class="subtitle">PREMIUM DIGITAL GRAPHIC EXPERIENCE</p>
 
 <div style="text-align:center;">
-    <a href="#tasarimlar" class="btn">Çalışmaları Gör</a>
-    <a href="https://discord.gg/ADRESIN" target="_blank" class="btn">Discord</a>
-</div>
-
-<div class="section">
-    <h2>Hakkımızda</h2>
-    <p>
-        Meska DESIGN, modern ve özgün grafik tasarımlar üreten profesyonel bir dijital ajanstır.
-        Markanızı en güçlü şekilde temsil eden logo, banner ve sosyal medya tasarımları üretir.
-    </p>
+<a href="#tasarimlar" class="btn">Çalışmaları Gör</a>
+<a href="https://discord.gg/ADRESIN" target="_blank" class="btn">Discord</a>
 </div>
 
 <div class="section" id="tasarimlar">
@@ -199,11 +207,11 @@ footer {
 <button onclick="filterSelection('giflogo')">GIF Logo</button>
 <button onclick="filterSelection('gfxlogo')">GFX Logo</button>
 <button onclick="filterSelection('gifbanner')">GIF Banner</button>
-<button onclick="filterSelection('gfxbanner')">GFX Banner</button>
+
 <button onclick="filterSelection('social')">Social Media</button>
 </div>
 
-<h2 class="category-title">Tasarımlar</h2>
+<h2 class="category-title">PORTFOLIO</h2>
 
 <div class="cards">
 
@@ -215,81 +223,177 @@ footer {
 <div class="card gfxlogo" onclick="openModal(this)"><img src="gfxlogo1.gif"></div>
 <div class="card gfxlogo" onclick="openModal(this)"><img src="gfxlogo2.gif"></div>
 <div class="card gfxlogo" onclick="openModal(this)"><img src="gfxlogo3.gif"></div>
+<div class="card gfxlogo" onclick="openModal(this)"><img src="gfxlogo4.gif"></div>
+<div class="card gfxlogo" onclick="openModal(this)"><img src="gfxlogo5.gif"></div>
+<div class="card gfxlogo" onclick="openModal(this)"><img src="gfxlogo6.gif"></div>
+<div class="card gfxlogo" onclick="openModal(this)"><img src="gfxlogo7.gif"></div>
+<div class="card gfxlogo" onclick="openModal(this)"><img src="gfxlogo8.gif"></div>
+<div class="card gfxlogo" onclick="openModal(this)"><img src="gfxlogo9.gif"></div>
 
 <div class="card gifbanner" onclick="openModal(this)"><img src="gifbanner1.gif"></div>
 <div class="card gifbanner" onclick="openModal(this)"><img src="gifbanner2.gif"></div>
 <div class="card gifbanner" onclick="openModal(this)"><img src="gifbanner3.gif"></div>
-<div class="card gifbanner" onclick="openModal(this)"><img src="gifbanner4.gif"></div>
-<div class="card gifbanner" onclick="openModal(this)"><img src="gifbanner5.gif"></div>
-
-<div class="card gfxbanner" onclick="openModal(this)"><img src="gfxbanner1.jpg"></div>
-<div class="card gfxbanner" onclick="openModal(this)"><img src="gfxbanner2.jpg"></div>
-<div class="card gfxbanner" onclick="openModal(this)"><img src="gfxbanner3.jpg"></div>
-<div class="card gfxbanner" onclick="openModal(this)"><img src="gfxbanner4.jpg"></div>
-<div class="card gfxbanner" onclick="openModal(this)"><img src="gfxbanner5.jpg"></div>
 
 <div class="card social" onclick="openModal(this)"><img src="social1.jpg"></div>
 <div class="card social" onclick="openModal(this)"><img src="social2.jpg"></div>
-<div class="card social" onclick="openModal(this)"><img src="social3.jpg"></div>
-<div class="card social" onclick="openModal(this)"><img src="social4.jpg"></div>
-<div class="card social" onclick="openModal(this)"><img src="social5.jpg"></div>
 
 </div>
 </div>
 
-<!-- MODAL -->
 <div class="modal" id="modal" onclick="closeModal()">
 <img id="modalImg">
 </div>
 
 <footer>
-© 2026 Meska DESIGN | Tüm Hakları Saklıdır.
+© 2026 Meska DESIGN | All Rights Reserved
 </footer>
 
 <script>
 filterSelection("all");
 
-function filterSelection(category) {
-let cards = document.getElementsByClassName("card");
-for (let i = 0; i < cards.length; i++) {
+function filterSelection(category){
+let cards=document.getElementsByClassName("card");
+for(let i=0;i<cards.length;i++){
 cards[i].classList.remove("show");
-if (category === "all" || cards[i].classList.contains(category)) {
-cards[i].style.display = "block";
-setTimeout(() => cards[i].classList.add("show"), 100);
-} else {
-cards[i].style.display = "none";
+if(category==="all"||cards[i].classList.contains(category)){
+cards[i].style.display="block";
+setTimeout(()=>cards[i].classList.add("show"),100);
+}else{
+cards[i].style.display="none";
 }
 }
 }
 
-window.addEventListener("scroll", () => {
-let cards = document.querySelectorAll(".card");
-let triggerBottom = window.innerHeight * 0.85;
-cards.forEach(card => {
-let cardTop = card.getBoundingClientRect().top;
-if (cardTop < triggerBottom) {
+window.addEventListener("scroll",()=>{
+let cards=document.querySelectorAll(".card");
+let triggerBottom=window.innerHeight*0.85;
+cards.forEach(card=>{
+let cardTop=card.getBoundingClientRect().top;
+if(cardTop<triggerBottom){
 card.classList.add("show");
 }
 });
 });
 
-/* MODAL */
 function openModal(card){
-const img = card.querySelector("img").src;
+const img=card.querySelector("img").src;
 document.getElementById("modal").style.display="flex";
-document.getElementById("modalImg").src = img;
+document.getElementById("modalImg").src=img;
 }
 
 function closeModal(){
 document.getElementById("modal").style.display="none";
 }
 
-document.addEventListener("keydown", function(e){
-if(e.key === "Escape"){
+document.addEventListener("keydown",function(e){
+if(e.key==="Escape"){
 closeModal();
 }
 });
 </script>
+<!-- ====================== -->
+<!-- FIREBASE + YORUM SİSTEMİ -->
+<!-- ====================== -->
 
+<hr style="margin:80px 0;border:1px solid #222;">
+
+<div class="section">
+
+<h2 class="category-title">Discord Profil</h2>
+<img src="https://cdn.discordapp.com/embed/avatars/0.png" width="90" style="border-radius:50%;margin-top:20px;">
+<p style="margin-top:10px;">@SeninDiscordAdın</p>
+<a href="https://discord.gg/ADRESIN" target="_blank" class="btn">Discord Sunucusu</a>
+
+</div>
+
+<div class="section">
+
+<h2 class="category-title">Kayıt Ol</h2>
+<input type="email" id="registerEmail" placeholder="Email" style="padding:10px;margin:5px;">
+<input type="password" id="registerPassword" placeholder="Şifre" style="padding:10px;margin:5px;">
+<button class="btn" onclick="register()">Kayıt Ol</button>
+
+<h2 class="category-title" style="margin-top:60px;">Giriş Yap</h2>
+<input type="email" id="loginEmail" placeholder="Email" style="padding:10px;margin:5px;">
+<input type="password" id="loginPassword" placeholder="Şifre" style="padding:10px;margin:5px;">
+<button class="btn" onclick="login()">Giriş Yap</button>
+<button class="btn" onclick="logout()">Çıkış</button>
+
+</div>
+
+<div class="section">
+
+<h2 class="category-title">Yorum Yap</h2>
+<textarea id="commentInput" placeholder="Yorum yaz..." style="width:300px;height:100px;padding:10px;"></textarea><br>
+<button class="btn" onclick="addComment()">Yorum Gönder</button>
+
+<div id="comments" style="margin-top:40px;"></div>
+
+</div>
+
+<!-- FIREBASE CDN -->
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+
+<script>
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCN7SeQz8GzRJ6VpmjmJxSdmn6ouO50sIE",
+  authDomain: "meskadesign-e7330.firebaseapp.com",
+  projectId: "meskadesign-e7330",
+  storageBucket: "meskadesign-e7330.firebasestorage.app",
+  messagingSenderId: "678117835341",
+  appId: "1:678117835341:web:0e71dc455dfeb2bf92d204"
+};
+
+firebase.initializeApp(firebaseConfig);
+const auth = firebase.auth();
+const db = firebase.firestore();
+
+function register(){
+let email=document.getElementById("registerEmail").value;
+let password=document.getElementById("registerPassword").value;
+auth.createUserWithEmailAndPassword(email,password)
+.then(()=>alert("Kayıt başarılı"))
+.catch(err=>alert(err.message));
+}
+
+function login(){
+let email=document.getElementById("loginEmail").value;
+let password=document.getElementById("loginPassword").value;
+auth.signInWithEmailAndPassword(email,password)
+.then(()=>alert("Giriş başarılı"))
+.catch(err=>alert(err.message));
+}
+
+function logout(){
+auth.signOut();
+alert("Çıkış yapıldı");
+}
+
+function addComment(){
+let user=auth.currentUser;
+if(!user){alert("Önce giriş yap");return;}
+let text=document.getElementById("commentInput").value;
+db.collection("comments").add({
+email:user.email,
+text:text,
+date:new Date()
+});
+document.getElementById("commentInput").value="";
+}
+
+db.collection("comments").orderBy("date","desc")
+.onSnapshot(snapshot=>{
+let html="";
+snapshot.forEach(doc=>{
+let data=doc.data();
+html+=`<p style="margin:10px 0;"><b>${data.email}</b>: ${data.text}</p>`;
+});
+document.getElementById("comments").innerHTML=html;
+});
+
+</script>
 </body>
 </html>
